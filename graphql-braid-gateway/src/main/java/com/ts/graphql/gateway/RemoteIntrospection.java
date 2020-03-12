@@ -1,16 +1,21 @@
 package com.ts.graphql.gateway;
 
-import com.google.gson.Gson;
-import graphql.introspection.IntrospectionResultToSchema;
-import graphql.language.Document;
-import graphql.schema.idl.SchemaPrinter;
-import okhttp3.*;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import graphql.introspection.IntrospectionResultToSchema;
+import graphql.language.Document;
+import graphql.schema.idl.SchemaPrinter;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class RemoteIntrospection {
   public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -28,7 +33,7 @@ public class RemoteIntrospection {
             put("query", introspectionQuery());
         }};
 
-        String json = gson.toJson(bodyMap);
+        String json = gson.toJson(bodyMap, new TypeToken<Map<String, Object>>(){}.getType());
         RequestBody body = RequestBody.create(JSON, json);
         Request request = new Request.Builder()
             .url(url)

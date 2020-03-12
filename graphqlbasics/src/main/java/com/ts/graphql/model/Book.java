@@ -3,7 +3,6 @@ package com.ts.graphql.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
 @Entity
 @Table(name = "books")
@@ -11,7 +10,6 @@ public class Book {
     @Id
     String isbn;
     String title;
-    Date pubYear;
     int price;
 
     @Override
@@ -19,7 +17,6 @@ public class Book {
         return "Book{" +
                 "isbn='" + isbn + '\'' +
                 ", title='" + title + '\'' +
-                ", pubYear=" + pubYear +
                 ", price=" + price +
                 '}';
     }
@@ -55,15 +52,6 @@ public class Book {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public Date getPubYear() {
-        return pubYear;
-    }
-
-    public void setPubYear(Date pubYear) {
-        this.pubYear = pubYear;
-    }
-
 
     public int getPrice() {
         return price;

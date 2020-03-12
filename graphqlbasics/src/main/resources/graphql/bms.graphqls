@@ -1,10 +1,8 @@
 # java.util.Date implementation
-scalar Date
 
 type Book {
         isbn:String!,
         title:String,
-        pubYear:Date,
         price:Int
 }
 

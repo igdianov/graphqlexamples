@@ -56,12 +56,12 @@
 
         </dependency>
 
-        <dependency>
+<!--         <dependency>
             <groupId>com.zhokhov.graphql</groupId>
             <artifactId>graphql-datetime-spring-boot-starter</artifactId>
             <version>LATEST</version>
         </dependency>
-
+ -->
         <dependency>
             <groupId>com.graphql-java</groupId>
             <artifactId>graphql-java-extended-scalars</artifactId>

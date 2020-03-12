@@ -1,15 +1,16 @@
 package com.ts.graphql.controller;
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.ts.graphql.model.Book;
-import com.ts.graphql.service.BMSService;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+import com.ts.graphql.model.Book;
+import com.ts.graphql.service.BMSService;
 
 @Component
 public class BMSMutation implements GraphQLMutationResolver {
@@ -26,7 +27,6 @@ public class BMSMutation implements GraphQLMutationResolver {
         Book book = new Book();
         book.setIsbn(isbn);
         book.setTitle(title);
-        book.setPubYear(sdf.parse(pubYear));
         book.setPrice(price);
         try {
             service.save(book);
